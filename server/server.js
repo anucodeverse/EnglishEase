@@ -4,7 +4,11 @@ const cors = require("cors");
 require("dotenv").config();
 
 const connectDB = require("./config/db");
+
 const authRoutes = require("./routes/authRoutes");
+const grammarRoutes = require("./routes/grammarRoutes");
+const vocabularyRoutes = require("./routes/vocabularyRoutes");
+const sentenceRoutes = require("./routes/sentenceRoutes");
 
 const app = express();
 
@@ -19,6 +23,15 @@ app.get("/", (req, res) => {
 
 // Authentication routes
 app.use("/api/auth", authRoutes);
+
+// Grammar routes
+app.use("/api/learning/grammar", grammarRoutes);
+
+// Vocabulary routes
+app.use("/api/learning/vocabulary", vocabularyRoutes);
+
+// Sentence Practice routes
+app.use("/api/learning/sentences", sentenceRoutes);
 
 // Start server
 const PORT = process.env.PORT || 5000;

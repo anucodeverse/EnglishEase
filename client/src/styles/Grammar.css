@@ -1,0 +1,143 @@
+
+.grammar-page {
+  min-height: 100vh;
+  padding: 40px;
+  background: #171717;
+  color: #fff3d8;
+}
+
+.grammar-header {
+  margin-bottom: 35px;
+}
+
+.grammar-label {
+  color: #f45a0b;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.grammar-header h1 {
+  margin: 10px 0;
+  font-size: 36px;
+}
+
+.grammar-header > p:last-child {
+  color: #b8b0a2;
+  font-size: 15px;
+}
+
+.grammar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.grammar-card {
+  padding: 25px;
+  background: #222;
+  border: 1px solid #383838;
+  border-radius: 16px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.grammar-card:hover {
+  transform: translateY(-4px);
+  border-color: #f45a0b;
+}
+
+.grammar-card-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.grammar-topic,
+.grammar-level {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.grammar-topic {
+  color: #ff8a50;
+  background: #392319;
+}
+
+.grammar-level {
+  color: #fff3d8;
+  background: #383838;
+}
+
+.grammar-card h2 {
+  margin-bottom: 12px;
+  font-size: 23px;
+}
+
+.grammar-explanation {
+  color: #c8c0b4;
+  line-height: 1.7;
+}
+
+.grammar-section {
+  margin-top: 24px;
+}
+
+.grammar-section h3 {
+  margin-bottom: 12px;
+  color: #f45a0b;
+  font-size: 16px;
+}
+
+.grammar-section ul {
+  padding-left: 20px;
+  color: #e5ded2;
+}
+
+.grammar-section li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.grammar-example {
+  margin-top: 12px;
+  padding: 15px;
+  background: #2c2c2c;
+  border-radius: 10px;
+}
+
+.incorrect {
+  color: #ff7777;
+  margin-bottom: 8px;
+}
+
+.correct {
+  color: #79d99a;
+  margin-bottom: 8px;
+}
+
+.example-explanation {
+  color: #b8b0a2;
+  font-size: 13px;
+}
+
+.grammar-message {
+  color: #c8c0b4;
+  padding: 20px 0;
+}
+
+.grammar-error {
+  color: #ff7777;
+  padding: 20px 0;
+}
+
+@media (max-width: 600px) {
+  .grammar-page {
+    padding: 22px 16px;
+  }
+
+  .grammar-header h1 {
+    font-size: 28px;
+  }
+}
