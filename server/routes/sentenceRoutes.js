@@ -8,13 +8,15 @@ const {
   createSentence
 } = require("../controllers/sentenceController");
 
-// Get all sentence lessons
+const { protect, admin } = require("../middleware/authMiddleware");
+
+// GET ALL SENTENCE LESSONS
 router.get("/", getSentences);
 
-// Get one sentence lesson
+// GET SINGLE SENTENCE LESSON
 router.get("/:id", getSentenceById);
 
-// Create a sentence lesson
-router.post("/", createSentence);
+// CREATE SENTENCE LESSON (ADMIN ONLY)
+router.post("/", protect, admin, createSentence);
 
 module.exports = router;
