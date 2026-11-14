@@ -1,0 +1,158 @@
+.vocabulary-page {
+  min-height: 100vh;
+  padding: 40px;
+  background: #171717;
+  color: #FFF3D8;
+}
+
+.vocabulary-header {
+  margin-bottom: 30px;
+}
+
+.vocabulary-label {
+  color: #F45A0B;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.vocabulary-header h1 {
+  font-size: 32px;
+  margin: 10px 0;
+}
+
+.vocabulary-header > p:last-child {
+  color: #bdb6a9;
+  line-height: 1.6;
+}
+
+.vocabulary-search {
+  margin-bottom: 30px;
+}
+
+.vocabulary-search input {
+  width: 100%;
+  max-width: 450px;
+  padding: 14px 16px;
+  border: 1px solid #444;
+  border-radius: 10px;
+  background: #222;
+  color: #FFF3D8;
+  font-size: 14px;
+  outline: none;
+}
+
+.vocabulary-search input:focus {
+  border-color: #F45A0B;
+}
+
+.vocabulary-search input::placeholder {
+  color: #999;
+}
+
+.vocabulary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 22px;
+}
+
+.vocabulary-card {
+  padding: 24px;
+  background: #222;
+  border: 1px solid #383838;
+  border-radius: 16px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.vocabulary-card:hover {
+  transform: translateY(-4px);
+  border-color: #F45A0B;
+}
+
+.vocabulary-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.vocabulary-level {
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: rgba(244, 90, 11, 0.15);
+  color: #F45A0B;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.vocabulary-part {
+  color: #aaa;
+  font-size: 12px;
+}
+
+.vocabulary-card h2 {
+  margin: 0 0 8px;
+  font-size: 25px;
+  color: #FFF3D8;
+}
+
+.vocabulary-pronunciation {
+  color: #F45A0B;
+  font-size: 13px;
+  margin-bottom: 22px;
+}
+
+.vocabulary-section {
+  margin-top: 20px;
+}
+
+.vocabulary-section h3 {
+  color: #F45A0B;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.vocabulary-section p {
+  color: #c7c0b4;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.vocabulary-example {
+  font-style: italic;
+}
+
+.vocabulary-synonyms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.vocabulary-synonyms span {
+  padding: 6px 10px;
+  background: #333;
+  color: #FFF3D8;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+.vocabulary-message {
+  color: #bdb6a9;
+  margin: 25px 0;
+}
+
+.vocabulary-error {
+  color: #ff7777;
+  margin: 25px 0;
+}
+
+@media (max-width: 600px) {
+  .vocabulary-page {
+    padding: 24px 16px;
+  }
+
+  .vocabulary-header h1 {
+    font-size: 26px;
+  }
+}
