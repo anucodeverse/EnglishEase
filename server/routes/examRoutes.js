@@ -1,3 +1,4 @@
+
 const express = require("express");
 const router = express.Router();
 
@@ -12,12 +13,14 @@ const {
 const {
   addQuestion,
   updateQuestion,
-  deleteQuestion
+  deleteQuestion,
+  getAdminQuestions
 } = require("../controllers/questionController");
 
 const {
   submitExam,
   getMyResults,
+  getResultById,
   getAllResults
 } = require("../controllers/resultController");
 
@@ -27,13 +30,20 @@ const { protect, admin } = require("../middleware/authMiddleware");
 router.get("/results/my", protect, getMyResults);
 
 // ADMIN - GET ALL RESULTS
+// Keep this route BEFORE /results/:resultId
 router.get("/results/all", protect, admin, getAllResults);
+
+// STUDENT - GET ONE RESULT
+router.get("/results/:resultId", protect, getResultById);
 
 // STUDENT - GET ACTIVE EXAMS
 router.get("/", protect, getExams);
 
 // ADMIN - CREATE EXAM
 router.post("/", protect, admin, createExam);
+
+// ADMIN - GET QUESTIONS WITH CORRECT ANSWERS
+router.get("/:examId/questions", protect, admin, getAdminQuestions);
 
 // ADMIN - ADD QUESTION
 router.post("/:examId/questions", protect, admin, addQuestion);

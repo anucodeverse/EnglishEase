@@ -28,8 +28,13 @@ function Login() {
     setLoading(true);
 
     try {
-      await login(formData.email, formData.password);
-      navigate("/dashboard");
+      const user = await login(formData.email, formData.password);
+
+      if (user?.role === "admin") {
+        navigate("/admin");
+      } else {
+        navigate("/dashboard");
+      }
     } catch (err) {
       setError(
         err.response?.data?.message || "Login failed. Please try again."

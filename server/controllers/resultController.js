@@ -145,6 +145,35 @@ const getMyResults = async (req, res) => {
 };
 
 
+// GET ONE RESULT FOR THE LOGGED-IN STUDENT
+const getResultById = async (req, res) => {
+  try {
+    const result = await Result.findOne({
+      _id: req.params.resultId,
+      student: req.user.id
+    }).populate("exam", "title duration");
+
+    if (!result) {
+      return res.status(404).json({
+        message: "Result not found"
+      });
+    }
+
+    res.status(200).json({
+      message: "Result fetched successfully",
+      result
+    });
+
+  } catch (error) {
+    console.error("Get Single Result Error:", error);
+
+    res.status(500).json({
+      message: "Server error while fetching result"
+    });
+  }
+};
+
+
 // GET ALL STUDENT RESULTS (ADMIN ONLY)
 const getAllResults = async (req, res) => {
   try {
@@ -172,5 +201,6 @@ const getAllResults = async (req, res) => {
 module.exports = {
   submitExam,
   getMyResults,
+  getResultById,
   getAllResults
 };

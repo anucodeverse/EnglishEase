@@ -22,24 +22,24 @@ function Sidebar() {
         <p className="sidebar-label">MAIN MENU</p>
 
         <NavLink to="/dashboard" className="sidebar-link">
-          <span>▦</span>
+          <span>DB</span>
           Dashboard
         </NavLink>
 
         <p className="sidebar-label">LEARNING</p>
 
         <NavLink to="/grammar" className="sidebar-link">
-          <span>📖</span>
+          <span>GR</span>
           Grammar Practice
         </NavLink>
 
         <NavLink to="/vocabulary" className="sidebar-link">
-          <span>🔤</span>
+          <span>VO</span>
           Vocabulary
         </NavLink>
 
         <NavLink to="/sentences" className="sidebar-link">
-          <span>✍️</span>
+          <span>SP</span>
           Sentence Practice
         </NavLink>
 
@@ -58,14 +58,14 @@ function Sidebar() {
         <p className="sidebar-label">ACCOUNT</p>
 
         <NavLink to="/profile" className="sidebar-link">
-          <span>👤</span>
+          <span>PR</span>
           My Profile
         </NavLink>
       </div>
 
       <div className="sidebar-bottom">
         <button onClick={handleLogout} className="sidebar-logout">
-          <span>↪</span>
+          <span>LO</span>
           Logout
         </button>
       </div>

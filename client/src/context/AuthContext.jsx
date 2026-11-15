@@ -49,16 +49,16 @@ export const AuthProvider = ({ children }) => {
 
   // Login existing user
   const login = async (email, password) => {
-    const response = await API.post("/auth/login", {
-      email,
-      password,
-    });
+  const response = await API.post("/auth/login", {
+    email,
+    password,
+  });
 
-    localStorage.setItem("token", response.data.token);
-    setUser(response.data.user);
+  localStorage.setItem("token", response.data.token);
+  setUser(response.data.user);
 
-    return response.data;
-  };
+  return response.data.user;
+};
 
   // Logout user
   const logout = () => {

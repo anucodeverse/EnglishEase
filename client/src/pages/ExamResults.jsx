@@ -18,8 +18,11 @@ function ExamResults() {
         const response = await API.get("/exams/results/my");
         setResults(response.data.results || []);
       } catch (err) {
-        console.error("Results fetch error:", err);
-        setError("Unable to load your exam results.");
+        console.error("Results loading error:", err);
+        setError(
+          err.response?.data?.message ||
+          "Unable to load your exam results."
+        );
       } finally {
         setLoading(false);
       }
@@ -30,12 +33,22 @@ function ExamResults() {
     }
   }, [user]);
 
-  if (authLoading) {
-    return <p>Loading...</p>;
-  }
+  if (authLoading) return <p>Loading...</p>;
 
   if (!user) {
     return <Navigate to="/login" replace />;
+  }
+
+  if (loading) return <p>Loading your results...</p>;
+
+  if (error) {
+    return (
+      <div className="exam-results-page">
+        <h2>Unable to Load Results</h2>
+        <p>{error}</p>
+        <Link to="/exams">Back to Exams</Link>
+      </div>
+    );
   }
 
   return (
@@ -43,29 +56,19 @@ function ExamResults() {
       <div className="exam-results-header">
         <p className="exam-results-label">YOUR PERFORMANCE</p>
         <h1>My Exam Results</h1>
-        <p>Review your scores and track your English learning progress.</p>
+        <p>View your completed exam results.</p>
       </div>
 
-      {loading && <p className="results-message">Loading results...</p>}
-
-      {error && <p className="results-error">{error}</p>}
-
-      {!loading && !error && results.length === 0 && (
-        <div className="results-empty">
-          <h2>No results yet</h2>
-          <p>You haven't completed any exams yet.</p>
-          <Link to="/exams" className="results-button">
-            Explore Exams
-          </Link>
+      {results.length === 0 ? (
+        <div className="result-card">
+          <h2>No Results Yet</h2>
+          <p>You have not completed any exams.</p>
+          <Link to="/exams">Explore Exams</Link>
         </div>
-      )}
-
-      {!loading && !error && results.length > 0 && (
+      ) : (
         <div className="results-grid">
           {results.map((result) => (
             <article className="result-card" key={result._id}>
-              <p className="result-label">EXAM COMPLETED</p>
-
               <h2>{result.exam?.title || "English Exam"}</h2>
 
               <div className="result-score">
@@ -77,23 +80,35 @@ function ExamResults() {
               </p>
 
               <div className="result-status">
-                {result.percentage >= 40 ? "Passed" : "Needs Improvement"}
+                {result.percentage >= 40
+                  ? "Passed"
+                  : "Needs Improvement"}
               </div>
 
               <p className="result-date">
                 Submitted:{" "}
-                {new Date(result.submittedAt).toLocaleDateString()}
+                {result.submittedAt
+                  ? new Date(result.submittedAt).toLocaleString()
+                  : "Recently"}
               </p>
+
+              <Link
+                to={`/exam-result/${result._id}`}
+                className="results-button"
+              >
+                View Result
+              </Link>
             </article>
           ))}
         </div>
       )}
 
-      <Link to="/exams" className="results-back-link">
-        Back to Exams
-      </Link>
+      <div className="take-exam-actions">
+        <Link to="/exams" className="results-back-link">
+          Back to Exams
+        </Link>
+      </div>
     </div>
   );
 }
-
 export default ExamResults;
