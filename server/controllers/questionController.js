@@ -20,8 +20,11 @@ const addQuestion = async (req, res) => {
       });
     }
 
-    if (!Array.isArray(options) || options.length !== 4 ||
-        options.some(option => typeof option !== "string" || !option.trim())) {
+    if (
+      !Array.isArray(options) ||
+      options.length !== 4 ||
+      options.some(option => typeof option !== "string" || !option.trim())
+    ) {
       return res.status(400).json({
         message: "Exactly 4 non-empty options are required"
       });
@@ -150,8 +153,42 @@ const deleteQuestion = async (req, res) => {
 };
 
 
+// GET QUESTIONS FOR AN EXAM (ADMIN ONLY)
+const getAdminQuestions = async (req, res) => {
+  try {
+    const { examId } = req.params;
+
+    const exam = await Exam.findById(examId);
+
+    if (!exam) {
+      return res.status(404).json({
+        message: "Exam not found"
+      });
+    }
+
+    const questions = await Question.find({
+      exam: examId
+    }).sort({ createdAt: -1 });
+
+    res.status(200).json({
+      message: "Questions fetched successfully",
+      count: questions.length,
+      questions
+    });
+
+  } catch (error) {
+    console.error("Get Admin Questions Error:", error);
+
+    res.status(500).json({
+      message: "Server error while fetching questions"
+    });
+  }
+};
+
+
 module.exports = {
   addQuestion,
   updateQuestion,
-  deleteQuestion
+  deleteQuestion,
+  getAdminQuestions
 };

@@ -81,6 +81,7 @@ function AdminDashboard() {
               <strong>{user.name}</strong>
               <span>Administrator</span>
             </div>
+
             <div className="admin-avatar">
               {user.name?.charAt(0).toUpperCase()}
             </div>
@@ -89,12 +90,17 @@ function AdminDashboard() {
 
         <section className="admin-welcome">
           <div>
-            <span className="admin-welcome-tag">ADMIN CONTROL CENTER</span>
+            <span className="admin-welcome-tag">
+              ADMIN CONTROL CENTER
+            </span>
+
             <h2>Welcome back, {user.name}!</h2>
+
             <p>
               Here's an overview of exams and student performance.
             </p>
           </div>
+
           <div className="admin-welcome-icon">AD</div>
         </section>
 
@@ -104,6 +110,7 @@ function AdminDashboard() {
               <span>Total Exams</span>
               <span className="admin-stat-icon">EX</span>
             </div>
+
             <h2>{loading ? "—" : exams.length}</h2>
             <p>Exams available in the platform</p>
           </div>
@@ -113,6 +120,7 @@ function AdminDashboard() {
               <span>Total Submissions</span>
               <span className="admin-stat-icon">RS</span>
             </div>
+
             <h2>{loading ? "—" : results.length}</h2>
             <p>Student exam submissions</p>
           </div>
@@ -122,6 +130,7 @@ function AdminDashboard() {
               <span>Average Score</span>
               <span className="admin-stat-icon">%</span>
             </div>
+
             <h2>{loading ? "—" : `${averageScore}%`}</h2>
             <p>Average student performance</p>
           </div>
@@ -136,21 +145,25 @@ function AdminDashboard() {
           </div>
 
           <div className="admin-quick-actions">
-            <Link to="/exams" className="admin-quick-card">
+            <Link to="/admin/exams" className="admin-quick-card">
               <span className="quick-icon">EX</span>
+
               <div>
                 <h3>Manage Exams</h3>
-                <p>View available online exams</p>
+                <p>Create exams and manage questions</p>
               </div>
+
               <span className="quick-arrow">→</span>
             </Link>
 
-            <Link to="/results" className="admin-quick-card">
+            <Link to="/admin/results" className="admin-quick-card">
               <span className="quick-icon">RS</span>
+
               <div>
                 <h3>View Results</h3>
-                <p>Check exam results and scores</p>
+                <p>Check student exam results and scores</p>
               </div>
+
               <span className="quick-arrow">→</span>
             </Link>
           </div>
@@ -163,7 +176,7 @@ function AdminDashboard() {
               <h2>Recent Student Results</h2>
             </div>
 
-            <Link to="/results" className="admin-view-all">
+            <Link to="/admin/results" className="admin-view-all">
               View all results →
             </Link>
           </div>
@@ -204,15 +217,21 @@ function AdminDashboard() {
                       <td>
                         <div className="admin-student-cell">
                           <span className="student-avatar">
-                            {result.student?.name?.charAt(0).toUpperCase() || "S"}
+                            {result.student?.name
+                              ?.charAt(0)
+                              .toUpperCase() || "S"}
                           </span>
+
                           {result.student?.name || "Unknown"}
                         </div>
                       </td>
+
                       <td>{result.exam?.title || "Unknown Exam"}</td>
+
                       <td>
                         {result.score} / {result.totalMarks}
                       </td>
+
                       <td>
                         <span className="score-badge">
                           {result.percentage}%
