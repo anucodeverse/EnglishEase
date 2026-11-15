@@ -2,6 +2,7 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import "../styles/Sidebar.css";
+
 function Sidebar() {
   const { logout } = useAuth();
   const navigate = useNavigate();
@@ -45,12 +46,7 @@ function Sidebar() {
         <p className="sidebar-label">ASSESSMENT</p>
 
         <NavLink to="/exams" className="sidebar-link">
-          <span>📝</span>
-          Online Exams
-        </NavLink>
-
-        <NavLink to="/results" className="sidebar-link">
-          <span>🏆</span>
+          <span>📅</span>
           My Results
         </NavLink>
 
