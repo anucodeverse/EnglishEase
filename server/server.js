@@ -9,6 +9,7 @@ const authRoutes = require("./routes/authRoutes");
 const grammarRoutes = require("./routes/grammarRoutes");
 const vocabularyRoutes = require("./routes/vocabularyRoutes");
 const sentenceRoutes = require("./routes/sentenceRoutes");
+const examRoutes = require("./routes/examRoutes");
 
 const app = express();
 
@@ -32,6 +33,7 @@ app.use("/api/learning/vocabulary", vocabularyRoutes);
 
 // Sentence Practice routes
 app.use("/api/learning/sentences", sentenceRoutes);
+app.use("/api/exams", examRoutes);
 
 // Start server
 const PORT = process.env.PORT || 5000;
