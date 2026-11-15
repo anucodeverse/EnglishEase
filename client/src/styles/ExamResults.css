@@ -1,0 +1,140 @@
+
+.exam-results-page {
+  min-height: 100vh;
+  padding: 40px;
+  background: #171717;
+  color: #fff3d8;
+}
+
+.exam-results-header {
+  margin-bottom: 35px;
+}
+
+.exam-results-label {
+  color: #f45a0b;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.exam-results-header h1 {
+  margin: 10px 0;
+  font-size: 36px;
+}
+
+.exam-results-header > p:last-child {
+  color: #b8b0a2;
+  font-size: 15px;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.result-card {
+  padding: 25px;
+  background: #222;
+  border: 1px solid #383838;
+  border-radius: 16px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.result-card:hover {
+  transform: translateY(-4px);
+  border-color: #f45a0b;
+}
+
+.result-label {
+  color: #ff8a50;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.result-card h2 {
+  margin: 15px 0;
+  font-size: 22px;
+}
+
+.result-score {
+  margin: 20px 0;
+  color: #f45a0b;
+  font-size: 42px;
+  font-weight: 700;
+}
+
+.result-marks {
+  color: #e5ded2;
+  margin-bottom: 15px;
+}
+
+.result-status {
+  display: inline-block;
+  padding: 8px 14px;
+  background: #2c2c2c;
+  border-radius: 8px;
+  color: #ff8a50;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.result-date {
+  margin-top: 18px;
+  color: #b8b0a2;
+  font-size: 13px;
+}
+
+.results-empty {
+  padding: 35px;
+  background: #222;
+  border: 1px solid #383838;
+  border-radius: 16px;
+}
+
+.results-empty h2 {
+  margin-bottom: 12px;
+}
+
+.results-empty p {
+  color: #b8b0a2;
+  margin-bottom: 22px;
+}
+
+.results-button {
+  display: inline-block;
+  padding: 11px 20px;
+  background: #f45a0b;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.results-back-link {
+  display: inline-block;
+  margin-top: 30px;
+  color: #ff8a50;
+  text-decoration: none;
+}
+
+.results-message {
+  color: #c8c0b4;
+  padding: 20px 0;
+}
+
+.results-error {
+  color: #ff7777;
+  padding: 20px 0;
+}
+
+@media (max-width: 600px) {
+  .exam-results-page {
+    padding: 22px 16px;
+  }
+
+  .exam-results-header h1 {
+    font-size: 28px;
+  }
+}

@@ -1,0 +1,148 @@
+
+.admin-dashboard {
+  min-height: 100vh;
+  padding: 40px;
+  background: #171717;
+  color: #fff3d8;
+}
+
+.admin-header {
+  margin-bottom: 35px;
+}
+
+.admin-label {
+  color: #f45a0b;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.admin-header h1 {
+  margin: 10px 0;
+  font-size: 36px;
+}
+
+.admin-header > p:last-child {
+  color: #b8b0a2;
+  font-size: 15px;
+}
+
+.admin-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+  margin-bottom: 40px;
+}
+
+.admin-stat-card {
+  padding: 25px;
+  background: #222;
+  border: 1px solid #383838;
+  border-radius: 16px;
+  transition: border-color 0.2s ease;
+}
+
+.admin-stat-card:hover {
+  border-color: #f45a0b;
+}
+
+.admin-stat-card p {
+  color: #b8b0a2;
+  font-size: 14px;
+}
+
+.admin-stat-card h2 {
+  margin-top: 12px;
+  color: #f45a0b;
+  font-size: 32px;
+}
+
+.admin-section {
+  margin-top: 35px;
+}
+
+.admin-section h2 {
+  margin-bottom: 20px;
+  font-size: 23px;
+}
+
+.admin-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  background: #222;
+  border: 1px solid #383838;
+  border-radius: 12px;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 16px;
+  border-bottom: 1px solid #383838;
+  white-space: nowrap;
+}
+
+.admin-table th {
+  color: #ff8a50;
+  font-size: 13px;
+}
+
+.admin-table td {
+  color: #e5ded2;
+  font-size: 14px;
+}
+
+.admin-table tr:last-child td {
+  border-bottom: none;
+}
+
+.admin-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 35px;
+}
+
+.admin-action-link {
+  display: inline-block;
+  padding: 12px 22px;
+  background: #f45a0b;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.admin-action-link:hover {
+  background: #d94b05;
+}
+
+.admin-message {
+  padding: 20px 0;
+  color: #c8c0b4;
+}
+
+.admin-error {
+  padding: 20px 0;
+  color: #ff7777;
+}
+
+@media (max-width: 600px) {
+  .admin-dashboard {
+    padding: 22px 16px;
+  }
+
+  .admin-header h1 {
+    font-size: 28px;
+  }
+
+  .admin-stat-card {
+    padding: 20px;
+  }
+}

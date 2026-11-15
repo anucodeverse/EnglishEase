@@ -11,6 +11,11 @@ import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import Profile from "./pages/Profile";
 
+import TakeExam from "./pages/TakeExam";
+import ExamResults from "./pages/ExamResults";
+import Exams from "./pages/Exams";
+import AdminDashboard from "./pages/AdminDashboard";
+
 import Grammar from "./pages/Grammar";
 import Vocabulary from "./pages/Vocabulary";
 import Sentences from "./pages/Sentences";
@@ -32,6 +37,14 @@ function App() {
         <Route path="/grammar" element={<Grammar />} />
         <Route path="/vocabulary" element={<Vocabulary />} />
         <Route path="/sentences" element={<Sentences />} />
+
+        {/* Member 3 - Exams */}
+        <Route path="/exams" element={<Exams />} />
+        <Route path="/exams/:id" element={<TakeExam />} />
+        <Route path="/results" element={<ExamResults />} />
+
+        {/* Member 3 - Admin Dashboard */}
+        <Route path="/admin" element={<AdminDashboard />} />
       </Routes>
     </BrowserRouter>
   );
