@@ -14,7 +14,9 @@ function Dashboard() {
   if (!user) {
     return <Navigate to="/login" replace />;
   }
-
+  if (user.role === "admin") {
+  return <Navigate to="/admin" replace />;
+}
   return (
     <div className="dashboard-layout">
       <Sidebar />
